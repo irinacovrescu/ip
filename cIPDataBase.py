@@ -16,3 +16,9 @@ class myDataBase:
             return True
         else:
             return False
+
+    def exportCurrent(self,username,parola):
+        query="SELECT Sold FROM Users WHERE Name=\'"+username+"\' AND Password=\'"+parola+"\'"
+        self.myCursor.execute(query)
+        answer=self.myCursor.fetchone()
+        return answer

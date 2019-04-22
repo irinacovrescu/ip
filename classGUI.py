@@ -39,7 +39,7 @@ class interfata(tk.Tk):
         frame=self.frames[cont]
         frame.tkraise()
 
-        menubar = frame.menubar(self )
+        menubar = frame.menubar(self)
         self.configure(menu=menubar)
 
 
