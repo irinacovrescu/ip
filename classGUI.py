@@ -8,7 +8,7 @@ class interfata(tk.Tk):
         tk.Tk.__init__(self)
 #        tk.Tk.iconbitmap(self,default='GUIPhotos/009.png')
         self.geometry("400x600")
-        self.title("NrDeInamtRecunoscatatorul")
+        self.title("GoguBank")
         container=tk.Frame(self)
         container.pack(fill="both",expand=True)
 
