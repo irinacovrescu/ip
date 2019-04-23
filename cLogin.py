@@ -7,6 +7,9 @@ from PIL import Image, ImageTk
 
 
 class LoginFrame(tk.Frame):
+    user = ""
+    passw = ""
+
     def menubar(self, root):
         menubar = tk.Menu(root)
         return menubar
@@ -15,15 +18,12 @@ class LoginFrame(tk.Frame):
         tk.Frame.__init__(self, parent)
 
         def logIn(username,password):
+            LoginFrame.user = username
             mydb = cIPDataBase.myDataBase()
             if mydb.askLogIn(username, password) is True:
                 controller.show_frame(cPanouControl.PanouControl)
             else:
                 print("Parola gresita sau user")
-
-
-
-
 
         label = ttk.Label(self)
         label.config(background="white")
@@ -48,13 +48,12 @@ class LoginFrame(tk.Frame):
         labelPass = Label(label, image=passwordImage, bg='white')
         labelPass.place(relx=0.25, rely=0.5, anchor=CENTER, relwidth='0.08', relheight='0.09')
         labelPass.image=passwordImage
-
         entryPass = Entry(label,show="*")
         entryPass.place(relx=0.5, rely=0.5, anchor=CENTER, relwidth='0.4', relheight='0.09')
 
         #buton
         buttonImage = PhotoImage(file="GUIPhotos/login.png")
-        logButton = Button(label, bg="white", image=buttonImage,command=lambda:logIn(entryNume.get(),entryPass.get()))
+        logButton = Button(label, bg="white", image=buttonImage,command=lambda:logIn(entryNume.get(), entryPass.get()))
         logButton.place(rely=0.7, relx=0.5, anchor=CENTER, relwidth="0.3", relheight='0.1')
         logButton.image=buttonImage
 
